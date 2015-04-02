@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Dash JavaScript Player</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/png" href="http://dashpg.com/w/2012/09/dashif.ico" />
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+
+    <link rel="stylesheet" href="/app/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/lib/bootstrap/css/bootstrap-glyphicons.css">
+    <link rel="stylesheet" href="/app/css/main.css">
+
+    <!-- http://jquery.com/ -->
+    <script src="/dist/hasplayer.js"></script>
+</head>
+<body>
+<h1>Dash.js Test Code</h1>
+
+<div>
+    <video id="videoPlayer" controls="true"></video>
+</div>
+
+
+<script>
+            (function(){
+                var url = "http://localhost:8080/samples/EBU-Demo/test-dash-10s-subs-rand-dashavc264/manifest-test-dash-10s-subs-rand-dashavc264.mpd";
+                var context = new Dash.di.DashContext();
+                var player = new MediaPlayer(context);
+                player.startup();
+                player.attachView(document.querySelector("#videoPlayer"));
+                player.attachSource(url);
+            })();
+       </script>
+
+</body>
+</html>
